@@ -2,8 +2,6 @@ import { Container } from "../shared/Container";
 import { Paragraph } from "../shared/Paragraph";
 import { Button } from "../shared/Button";
 import { Numbers } from "./Numbers";
-import heroImage from "../../assets/screenshot.jpg";
-
 
 export const Hero = () => {
   return (
@@ -78,7 +76,7 @@ export const Hero = () => {
 
         <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-non lg:mx-0 mx-auto max-w-3xl">
           <img
-            src="{heroImage}"
+            src="https://specials-images.forbesimg.com/imageserve/61ef9a64a8e00e4a218fba2a/Employer-and-candidate-having-remote-job-interview-on-virtual-conference/960x0.jpg?fit=scale"
             alt="Hero image"
             width={2350}
             height={2359}
