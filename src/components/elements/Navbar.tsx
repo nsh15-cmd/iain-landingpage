@@ -81,13 +81,13 @@ export const Navbar = () => {
             </button>
             {/* Log In & Sign Up */}
             <a
-              href="https://iain-0000-fugj.vercel.app/"
+              href="https://iain-0000-fugj.vercel.app/sign-in"
               className="px-4 py-2 text-heading-1 font-medium rounded-md  text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition"
             >
               Log In
             </a>
             <a
-              href="https://iain-0000-fugj.vercel.app/"
+              href="https://iain-0000-fugj.vercel.app/sign-in"
               className="px-4 py-2 bg-violet-800 text-white font-medium rounded-md hover:bg-violet-900 transition"
             >
               Sign Up
