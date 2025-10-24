@@ -2,6 +2,8 @@ import { Container } from "../shared/Container";
 import { Paragraph } from "../shared/Paragraph";
 import { Button } from "../shared/Button";
 import { Numbers } from "./Numbers";
+import heroImage from "../../assets/screenshot.jpg";
+
 
 export const Hero = () => {
   return (
@@ -76,7 +78,7 @@ export const Hero = () => {
 
         <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-non lg:mx-0 mx-auto max-w-3xl">
           <img
-            src="https://media.licdn.com/dms/image/v2/D4D12AQEzX2h6dwj87Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1711092252912?e=1759968000&v=beta&t=Jma2Wh0z7ZVW8Vpv39GdfSz1ESS5iu_YPH1Hrm0Ugdg"
+            src="/screenshot.jpg""
             alt="Hero image"
             width={2350}
             height={2359}
