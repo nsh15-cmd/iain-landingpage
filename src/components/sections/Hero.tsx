@@ -78,7 +78,7 @@ export const Hero = () => {
 
         <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-non lg:mx-0 mx-auto max-w-3xl">
           <img
-            src="/screenshot.jpg"
+            src="{heroImage}"
             alt="Hero image"
             width={2350}
             height={2359}
