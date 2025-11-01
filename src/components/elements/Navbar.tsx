@@ -45,7 +45,7 @@ export const Navbar = () => {
           <div className="min-w-max flex items-center gap-x-3">
             <button
               onClick={toggleTheme}
-              className="outline-hidden flex relative text-heading-2 rounded-full p-2 lg:p-3 border border-box-border cursor-pointer"
+              className="outline-hidden flex relative text-heading-2 rounded-full p-2 lg:p-3 cursor-pointer"
             >
               {theme === "dark" ? (
                 <svg
