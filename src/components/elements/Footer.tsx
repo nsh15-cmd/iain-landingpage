@@ -31,10 +31,10 @@ export const Footer = () => {
         >
           © 2025 IAIN. All rights reserved.
           <div className="flex flex-col md:flex-row justify-between items-center relative gap-3 mt-3 md:mt-0">
-            <a href="/terms" className={`flex hover:underline ${textColor}`}>
+            <a href="./terms" className={`flex hover:underline ${textColor}`}>
               Terms & Conditions
             </a>
-            <a href="/privacy" className={`flex hover:underline ${textColor}`}>
+            <a href="./privacy" className={`flex hover:underline ${textColor}`}>
               Privacy Policy
             </a>
           </div>
