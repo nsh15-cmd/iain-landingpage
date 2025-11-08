@@ -40,6 +40,16 @@ export const Footer = () => {
           </div>
         </div>
       </Container>
+      <Container className="pb-8">
+        <div className="flex flex-col md:flex-row justify-end items-center relative gap-3 mt-3 md:mt-0">
+          <a
+            href="./comparisons"
+            className={`flex hover:underline ${textColor} font-bold`}
+          >
+            Comparisons
+          </a>
+        </div>
+      </Container>
     </footer>
   );
 };

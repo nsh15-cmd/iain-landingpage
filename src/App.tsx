@@ -6,6 +6,7 @@ import { Services } from "./components/sections/Services";
 import { AboutUs } from "./components/sections/AboutUs";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import ComparisonsPage from "./pages/Comparisons";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/comparisons" element={<ComparisonsPage />} />
         </Routes>
       </Layout>
     </Router>
