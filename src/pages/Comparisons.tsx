@@ -14,7 +14,7 @@ import type { JSX } from "react/jsx-runtime";
 
 const FEATURES = [
   "Real-time feedback",
-  "Role-specific questions",
+  "HR live interview simulation",
   "Video recording",
   "Progress analytics",
   "Co-pilot / answer assist",
@@ -25,7 +25,7 @@ const FEATURES = [
 // Updated IAIN scores
 const IAIN_SCORES: Record<string, number> = {
   "Real-time feedback": 100,
-  "Role-specific questions": 100,
+  "HR live interview simulation": 100,
   "Video recording": 70,
   "Progress analytics": 70,
   "Co-pilot / answer assist": 90,
@@ -143,7 +143,10 @@ export default function IAINFeatureComparison(): JSX.Element {
                   fillOpacity={0.1}
                 />
                 <Tooltip
-                  formatter={(value: any, name: string) => [`${value}`, name]}
+                  formatter={(value: number, name: string) => [
+                    `${value}`,
+                    name,
+                  ]}
                   wrapperStyle={{
                     backgroundColor: "#fff",
                     borderRadius: "5px",

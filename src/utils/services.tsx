@@ -25,8 +25,8 @@ export const services = [
     ),
   },
   {
-    title: "Smart Chat Assistance",
-    description: "Get real-time guidance and tips from our built-in assistant.",
+    title: "Messaging & Chat",
+    description: "Get real-time communication from our webb-app.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

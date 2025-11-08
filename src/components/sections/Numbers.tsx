@@ -21,7 +21,7 @@ export const Numbers = () => {
               {" "}
               24/7{" "}
             </h2>
-            <p className="mt-2 text-heading-3"> Chatbot Interview Support</p>
+            <p className="mt-2 text-heading-3"> Interview Support</p>
           </div>
           <div className="text-center px-5">
             <h2 className="font-semibold text-xl sm:text-2xl md:text-4xl text-heading-1">
