@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Radar,
   RadarChart,
@@ -11,6 +10,7 @@ import {
 } from "recharts";
 import { Check, X } from "lucide-react";
 import { useThemeStore } from "../store/ThemeStore";
+import type { JSX } from "react/jsx-runtime";
 
 const FEATURES = [
   "Real-time feedback",
