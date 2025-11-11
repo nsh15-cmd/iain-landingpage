@@ -28,13 +28,13 @@ export const Navbar = () => {
 
           <div
             className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center 
-                      absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent 
-                      border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden"
+                        absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent 
+                        border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden"
           >
             <ul
               className="border-t border-box-border lg:border-t-0 px-6 lg:px-0 
-                           pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-4
-                           text-lg text-heading-2 w-full lg:justify-center lg:items-center"
+                            pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-4
+                            text-lg text-heading-2 w-full lg:justify-center lg:items-center"
             >
               {navItems.map((item, key) => (
                 <NavItem href={item.href} text={item.text} key={key} />
@@ -81,16 +81,16 @@ export const Navbar = () => {
             </button>
             {/* Log In & Sign Up */}
             <a
-              href="https://iain-0000-fugj.vercel.app/sign-in"
+              href="https://iain-admin11-11-gw3q.vercel.app/login" // <-- UPDATED URL
               className="px-4 py-2 text-heading-1 font-medium rounded-md  text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition"
             >
               Log In
             </a>
             <a
-              href="https://iain-0000-fugj.vercel.app/sign-in"
+              href="https://iain-admin11-11-gw3q.vercel.app/login" // <-- UPDATED URL
               className="px-4 py-2 bg-violet-800 text-white font-medium rounded-md hover:bg-violet-900 transition"
             >
-              Sign Up
+              Admin Login {/* <-- UPDATED TEXT */}
             </a>
           </div>
         </nav>
