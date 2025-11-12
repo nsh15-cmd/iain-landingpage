@@ -33,42 +33,71 @@ const IAIN_SCORES: Record<string, number> = {
   "Free / affordable tier": 100,
 };
 
-// Example competitor scores (adjust as needed)
+// --- REFORMATTED FOR READABILITY ---
+// Use a more maintainable structure for competitor scores
+const COMPETITOR_SCORES: Record<string, Record<string, number>> = {
+  SmallTalk2: {
+    default: 75,
+    "Video recording": 20,
+    "Free / affordable tier": 85,
+  },
+  Parakeet: {
+    default: 65,
+    "Co-pilot / answer assist": 90,
+    "Video recording": 10,
+  },
+  TestGorilla: {
+    default: 60,
+    "Video recording": 90,
+    "Progress analytics": 90,
+  },
+  InterviewsChat: {
+    default: 40,
+    "Real-time feedback": 70,
+    // Note: "Role-specific questions" from original code was removed
+    // as it is not present in the main FEATURES array.
+  },
+  Flowmingo: {
+    default: 70,
+    "Progress analytics": 85,
+    "Resume tailoring": 85,
+  },
+};
+
+// Build the data using the readable score objects
 const DATA = FEATURES.map((feature) => ({
   feature,
   IAIN: IAIN_SCORES[feature],
   SmallTalk2:
-    feature === "Video recording"
-      ? 20
-      : feature === "Free / affordable tier"
-      ? 85
-      : 75,
+    COMPETITOR_SCORES.SmallTalk2[feature] ??
+    COMPETITOR_SCORES.SmallTalk2.default,
   Parakeet:
-    feature === "Co-pilot / answer assist"
-      ? 90
-      : feature === "Video recording"
-      ? 10
-      : 65,
+    COMPETITOR_SCORES.Parakeet[feature] ??
+    COMPETITOR_SCORES.Parakeet.default,
   TestGorilla:
-    feature === "Video recording" || feature === "Progress analytics" ? 90 : 60,
+    COMPETITOR_SCORES.TestGorilla[feature] ??
+    COMPETITOR_SCORES.TestGorilla.default,
   InterviewsChat:
-    feature === "Real-time feedback" || feature === "Role-specific questions"
-      ? 70
-      : 40,
+    COMPETITOR_SCORES.InterviewsChat[feature] ??
+    COMPETITOR_SCORES.InterviewsChat.default,
   Flowmingo:
-    feature === "Progress analytics" || feature === "Resume tailoring"
-      ? 85
-      : 70,
+    COMPETITOR_SCORES.Flowmingo[feature] ??
+    COMPETITOR_SCORES.Flowmingo.default,
 }));
+// --- END REFORMAT ---
 
 export default function IAINFeatureComparison(): JSX.Element {
   const { theme } = useThemeStore();
   const textColor = theme === "dark" ? "text-white" : "text-black";
   const bgColor = theme === "dark" ? "bg-gray-900" : "bg-white";
+  const tickColor = theme === "dark" ? "#fff" : "#111";
 
   return (
     <div
-      className={`flex items-center justify-center min-h-screen max-h-72 p-6 ${textColor}`}
+      // --- FIX 1 ---
+      // Removed `max-h-72`, which contradicts `min-h-screen`
+      // and the child element's `h-[650px]`.
+      className={`flex items-center justify-center min-h-screen p-6 ${textColor}`}
     >
       <section
         className={`w-full max-w-7xl p-8 rounded-3xl shadow-xl ${bgColor}`}
@@ -85,19 +114,28 @@ export default function IAINFeatureComparison(): JSX.Element {
             </p>
 
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart data={DATA} outerRadius={200}>
+              {/* --- FIX 2 ---
+                Changed `outerRadius={200}` to `outerRadius="80%"`.
+                A fixed pixel radius fights ResponsiveContainer and will
+                be clipped on smaller viewports (like the `h-96` mobile height).
+                A percentage is the correct way to use this.
+              */}
+              <RadarChart data={DATA} outerRadius="80%">
                 <PolarGrid stroke={theme === "dark" ? "#555" : "#ddd"} />
                 <PolarAngleAxis
                   dataKey="feature"
                   tick={{
                     fontSize: 13,
-                    fill: theme === "dark" ? "#fff" : "#111",
+                    fill: tickColor,
                   }}
                 />
                 <PolarRadiusAxis
                   angle={30}
                   domain={[0, 100]}
-                  tick={{ fill: "#000" }}
+                  // --- FIX 3 ---
+                  // Changed hardcoded `fill: "#000"` to use the
+                  // theme-aware `tickColor` variable.
+                  tick={{ fill: tickColor }}
                 />
 
                 <Radar
@@ -178,7 +216,10 @@ export default function IAINFeatureComparison(): JSX.Element {
                 const has = val >= 50;
                 return (
                   <li key={feature} className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-md bg-slate-100">
+                    {/* --- FIX 4 ---
+                      Made the icon background theme-aware
+                    */}
+                    <div className="w-10 h-10 flex items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800">
                       {has ? (
                         <Check className="w-6 h-6 text-green-600" />
                       ) : (
